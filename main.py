@@ -4,6 +4,7 @@ from kivy.graphics.vertex_instructions import Ellipse
 from kivy.metrics import dp
 from kivy.uix.gridlayout import GridLayout
 from kivy.uix.widget import Widget
+from gravity import GravityEffects
 
 
 class GravityEffectApp(App):
@@ -15,7 +16,9 @@ class MainLayoutForPyGame(Widget):
         super().__init__(**kwargs)
 
     def on_submit(self):
-        import gravity as gravity
+        gravity_effect = GravityEffects()
+        gravity_effect.run()
+
 
 
 
