@@ -1,11 +1,12 @@
 from Box2D.examples.framework import Framework
 from Box2D import *
-
+import pygame
 
 class GravityEffects(Framework):
-    def __init__(self):
+    def __init__(self,gravityVal):
         super(GravityEffects, self).__init__()
-        gravity_val = b2Vec2(0,-10)
+        pygame.display.set_caption('Bouncing ball, gravity effects')
+        gravity_val = b2Vec2(0,(-1)*gravityVal)
         self.world.gravity = gravity_val
         self.world.CreateBody(shapes=b2LoopShape(
             vertices=[(20, 0), (20, 40), (-20, 40), (-20, 0)]
@@ -24,4 +25,4 @@ class GravityEffects(Framework):
 
 
 if __name__ == '__main__':
-    GravityEffects().run()
+    GravityEffects(100).run()

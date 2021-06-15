@@ -1,11 +1,20 @@
 MainLayoutForPyGame:
 
-<MainLayoutForPyGame>:
-    Button:
-        text:"Submit"
-        on_press: root.on_submit()
-        size_hint: .2,.2
-        pos: root.height//2, root.width//2
+<MainLayoutForPyGame@GridLayout>>:
+    rows: 1
+    BoxLayout:
+        orientation: "horizontal"
+        BoxLayout:
+            orientation: "vertical"
+            size_hint: 1,1
+            TextInput:
+                id: gravity_value
+                text: "Enter the gravity value"
+                multiline: False
+            Button:
+                text:"Submit"
+                on_press: root.on_submit(gravity_value.text)
+
 
 <MainLayoutKivy@GridLayout>
     rows: 1

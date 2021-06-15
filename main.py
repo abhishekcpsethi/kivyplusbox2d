@@ -3,7 +3,6 @@ from kivy.clock import Clock
 from kivy.graphics.vertex_instructions import Ellipse
 from kivy.metrics import dp
 from kivy.uix.gridlayout import GridLayout
-from kivy.uix.widget import Widget
 from gravity import GravityEffects
 
 
@@ -11,12 +10,12 @@ class GravityEffectApp(App):
     pass
 
 
-class MainLayoutForPyGame(Widget):
+class MainLayoutForPyGame(GridLayout):
     def __init__(self,**kwargs):
         super().__init__(**kwargs)
 
-    def on_submit(self):
-        gravity_effect = GravityEffects()
+    def on_submit(self,gravity):
+        gravity_effect = GravityEffects(float(gravity))
         gravity_effect.run()
 
 
